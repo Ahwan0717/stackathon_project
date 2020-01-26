@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  background-image: url('./Gradient.jpg');
+  background-size:cover;
+  height: 100vh;
 }
 
 .App-logo {
@@ -40,3 +43,4 @@
 div, button {
   margin: 15px;
 }
+
