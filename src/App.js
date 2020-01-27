@@ -88,7 +88,6 @@ class App extends React.Component {
 		while (e = r.exec(q)) {
 			hashParams[e[1]] = decodeURIComponent(e[2]);
 		}
-		console.log("hashParams", hashParams)
 		return hashParams;
 	}
 
@@ -96,8 +95,6 @@ class App extends React.Component {
 	// Get Basic Info
 
 	componentDidMount() {
-	
-		console.log("starting loop")
 
 			// Loop through names array
 
@@ -120,7 +117,7 @@ class App extends React.Component {
 				.then(function (response) {
 					// handle success
 					let obj = {}
-					console.log('data', response);
+					// console.log('data', response);
 
 						// Save the ID, other information we might need
 					var id = response.data.artists.items[0].id;
@@ -136,11 +133,11 @@ class App extends React.Component {
 					})
 
 					// Top Tracks
-					console.log('looping through artist info for id')
+					// console.log('looping through artist info for id')
 					if ($this.state.artistInfo.length > 0) {
 						for (let i = 0; i < $this.state.artistInfo.length; i++) {
 							let id = $this.state.artistInfo[i].id;
-							console.log('id', id)
+							// console.log('id', id)
 
 							axios({
 								method: 'get',
@@ -187,7 +184,7 @@ class App extends React.Component {
 	getNowPlaying = () => {
 		spotifyWebApi.getMyCurrentPlaybackState()
 			.then((response) => {
-				console.log("response")
+				// console.log("response")
 				this.setState({
 					nowPlaying: {
 						name: response.item.name,
@@ -197,23 +194,12 @@ class App extends React.Component {
 			})
 	}
 
-	// Render Tracks as a grid
-	// Name 1
-	// Grid
-	// Name 2
-	// Grid
-	// Name 3
-	// Grid
-	// Name 4
-	// Grid
-	// Runs after render();
-
 
 
 	render() {
-		console.log("state:", this.state)
+		// console.log("state:", this.state)
 
-		console.log('this.state.topTracks BEFORE', this.state.topTracks)
+		// console.log('this.state.topTracks BEFORE', this.state.topTracks)
 
 		if (this.state.topTracks.length > 0) {
 			return (
@@ -232,7 +218,7 @@ class App extends React.Component {
 
 					<Text2>
 					<div>
-						<p>Discover the artists behind some of your favorite video games. Scroll to the bottom to check what song is playing after clicking on the artist (Spotify login is required.</p>
+						<p>Discover the artists behind some of your favorite video games. Scroll to the bottom to check what song is playing after clicking on the artist (Spotify login is required).</p>
 					</div>
 					</Text2>
 
@@ -240,7 +226,7 @@ class App extends React.Component {
 						this.state.topTracks.map(obj => {
 							console.log("obj", obj)
 							return obj.tracks.map(track => {
-								
+								console.log('TRACK', track)
 								var imgUrl = track.album.images[0].url;
 								var name = track.artists[0].name;
 								
