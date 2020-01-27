@@ -4,10 +4,7 @@ import Spotify from 'spotify-web-api-js';
 import axios from 'axios'
 import styled from 'styled-components';
 
-
-
 const spotifyWebApi = new Spotify();
-
 
 const GridContainer = styled.div`
 	/* ... */
@@ -55,11 +52,13 @@ const Text1 = styled.h3`
 font-size: 1.5em;
 text-align: center;
 `
+
 const Text2 = styled.p`
 /* ... */
 font-size: 1.5em;
 text-align: center;
 `
+
 
 class App extends React.Component {
 	constructor() {
@@ -233,7 +232,7 @@ class App extends React.Component {
 
 					<Text2>
 					<div>
-						<p>Discover the artists behind some of your favorite video games. Scroll to the bottom to check what song is playing after clicking on the artist. Spotify login is required.</p>
+						<p>Discover the artists behind some of your favorite video games. Scroll to the bottom to check what song is playing after clicking on the artist (Spotify login is required.</p>
 					</div>
 					</Text2>
 
@@ -257,7 +256,7 @@ class App extends React.Component {
 						})
 					}					
 					<div>
-						<h3>Play one of these songs on Spotify and see what song is playing!</h3>
+						<h3>Play one of these songs on Spotify to find out which song is playing!</h3>
 						<a href='http://localhost:8888'>
 							<button>Login with Spotify</button>
 						</a>
