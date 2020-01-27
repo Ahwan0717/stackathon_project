@@ -50,6 +50,17 @@ color: palevioletred;
 
 `
 
+const Text1 = styled.h3`
+/* ... */
+font-size: 1.5em;
+text-align: center;
+`
+const Text2 = styled.p`
+/* ... */
+font-size: 1.5em;
+text-align: center;
+`
+
 class App extends React.Component {
 	constructor() {
 		super()
@@ -207,20 +218,24 @@ class App extends React.Component {
 
 		if (this.state.topTracks.length > 0) {
 			return (
-				
 				<GridContainer>
-
 					<Title>
 					<div>
 					<h1>Video Game Music Library</h1>
 					</div>
 					</Title>
 
-					{/*
-					<h3> Created using Spotify API</h3>
-					<p>Discover the artists behind some of your favorite video games.</p>
-					 */}
+					<Text1>
+					<div>
+						<h3>Created using the Spotify API.</h3>
+					</div>
+					</Text1>
 
+					<Text2>
+					<div>
+						<p>Discover the artists behind some of your favorite video games. Scroll to the bottom to check what song is playing after clicking on the artist. Spotify login is required.</p>
+					</div>
+					</Text2>
 
 					{
 						this.state.topTracks.map(obj => {
