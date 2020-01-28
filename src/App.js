@@ -224,9 +224,12 @@ class App extends React.Component {
 
 					{
 						this.state.topTracks.map(obj => {
-							console.log("obj", obj)
+							// let tempId = obj.id
+							console.log("obj", obj);
+							let i = 0;
 							return obj.tracks.map(track => {
-								console.log('TRACK', track)
+								i++;
+								console.log('TRACK', i, track)
 								var imgUrl = track.album.images[0].url;
 								var name = track.artists[0].name;
 								
