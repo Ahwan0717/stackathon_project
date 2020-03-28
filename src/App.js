@@ -66,17 +66,17 @@ class App extends React.Component {
 		const params = this.getHashParams()
 
 		this.state = {
-			artistNames: ['Nobuo Uematsu', 'Akira Yamaoka', 'Andrew Hale', 'Koji Kondo', 'Norihiko Hibino', 'Yoko Shimomura'], 
+			artistNames: ['Nobuo Uematsu', 'Akira Yamaoka', 'Andrew Hale', 'Koji Kondo', 'Norihiko Hibino', 'Yoko Shimomura'],
 			artistInfo: [],
 			topTracks: [],
-			loggedIn : params.access_token ? true : false,
+			loggedIn: params.access_token ? true : false,
 			nowPlaying: {
 				name: 'Not Checked',
 				image: ''
 			}
 		}
 		// Use to bind functions
-		if(params.access_token){
+		if (params.access_token) {
 			spotifyWebApi.setAccessToken(params.access_token)
 		}
 	}
@@ -96,7 +96,7 @@ class App extends React.Component {
 
 	componentDidMount() {
 
-			// Loop through names array
+		// Loop through names array
 
 		for (let i = 0; i < this.state.artistNames.length; i++) {
 			let name = this.state.artistNames[i]
@@ -107,9 +107,9 @@ class App extends React.Component {
 
 			let $this = this; //need to keep context of the this 
 
-				// Get Data based on each name to populate our state: artistInfo 
-				// axios get request
-				// Pass artist id into request
+			// Get Data based on each name to populate our state: artistInfo 
+			// axios get request
+			// Pass artist id into request
 			axios({
 				method: 'get',
 				url: `https://spotify-api-wrapper.appspot.com/artist/${name}`,
@@ -119,7 +119,7 @@ class App extends React.Component {
 					let obj = {}
 					// console.log('data', response);
 
-						// Save the ID, other information we might need
+					// Save the ID, other information we might need
 					var id = response.data.artists.items[0].id;
 					var name = response.data.artists.items[0].name;
 
@@ -205,21 +205,21 @@ class App extends React.Component {
 			return (
 				<GridContainer>
 					<Title>
-					<div>
-					<h1>Video Game Music Library</h1>
-					</div>
+						<div>
+							<h1>Video Game Music Library</h1>
+						</div>
 					</Title>
 
 					<Text1>
-					<div>
-						<h3>Created using the Spotify API.</h3>
-					</div>
+						<div>
+							<h3>Created using the Spotify API</h3>
+						</div>
 					</Text1>
 
 					<Text2>
-					<div>
-						<p>Discover the artists behind some of your favorite video games. Scroll to the bottom to check what song is playing after clicking on the artist (Spotify login is required).</p>
-					</div>
+						<div>
+							<p>Discover the artists behind some of your favorite video games. Scroll to the bottom to check what song is playing after clicking on the artist (Spotify login is required).</p>
+						</div>
 					</Text2>
 
 					{
@@ -232,18 +232,18 @@ class App extends React.Component {
 								console.log('TRACK', i, track)
 								var imgUrl = track.album.images[0].url;
 								var name = track.artists[0].name;
-								
+
 								return (
 									<GridItem>
 										<a href={track.external_urls.spotify} target="_blank" rel="noopener noreferrer"><p>{name}</p></a>
 										<div>
-											<img src={imgUrl}/>
+											<img src={imgUrl} />
 										</div>
 									</GridItem>
 								)
 							})
 						})
-					}					
+					}
 					<div>
 						<h3>Play one of these songs on Spotify to find out which song is playing!</h3>
 						<a href='http://localhost:8888'>
@@ -251,7 +251,7 @@ class App extends React.Component {
 						</a>
 						<div>Now Playing {this.state.nowPlaying.name}</div>
 						<div>
-							<img src={this.state.nowPlaying.image} style={{ width: 100 }} />	
+							<img src={this.state.nowPlaying.image} style={{ width: 100 }} />
 						</div>
 						{this.state.loggedIn &&
 							<button onClick={() => this.getNowPlaying()}>
@@ -259,10 +259,10 @@ class App extends React.Component {
 							</button>
 						}
 					</div>
-        </GridContainer>
+				</GridContainer>
 
 			)
-		} 
+		}
 		return (
 			<div>
 				Loading...
